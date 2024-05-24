@@ -35,7 +35,7 @@ export class UserService {
     }
 
     async getByEmail(email: string): Promise<UserEntity> {
-        return this.userRepository.findOneBy({
+        return await this.userRepository.findOneBy({
             email: email,
         });
     }
@@ -62,8 +62,8 @@ export class UserService {
         }
         user.email = update.email;
         user.name = update.name;
-        await this.userRepository.save(user);
-        return;
+        
+        return await this.userRepository.save(user);;
     }
 
     async delete(id: string) {

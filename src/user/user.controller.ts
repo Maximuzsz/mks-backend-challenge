@@ -35,7 +35,7 @@ export class UserController {
   @UserCreateDecorator()
   async create(@Body() createUserDto: CreateUserDto) {
     try {
-      return JSON.stringify(this.userService.createUser(createUserDto));
+      return JSON.stringify( await this.userService.createUser(createUserDto));
     } catch (error) {
       throw new BadRequestException('Failed to insert');
     }
@@ -55,8 +55,7 @@ export class UserController {
   @UserDecoratorUpdate()
   async update(@Param('id') id: string, @Body() user: UpdateUserDto) {
     try {
-      await this.userService.updateUser(id, user)
-      return { message: 'Updated successfully' };
+      return JSON.stringify(await this.userService.updateUser(id, user));
     } catch (error) {
       throw new BadRequestException('Failed to update ');
     }

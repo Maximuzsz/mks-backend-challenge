@@ -15,36 +15,36 @@ export class CatalogoController {
   constructor(private readonly catalogoService: CatalogoService) {}
 
   @CatalogoDecoratorGetAll()
-  gatAllFilmes() {
+  async gatAllFilmes() {
     try {
-      return JSON.stringify(this.catalogoService.findAll());
+      return  JSON.stringify(await this.catalogoService.findAll());
     } catch (error) {
       throw new BadRequestException('Failed to request ');
     }
   }
 
   @CatalogoDecoratorGetID()
-  getFilmesId(@Param('id') id: string) {
+  async getFilmesId(@Param('id') id: string) {
     try {
-      return JSON.stringify(this.catalogoService.findOne(id));
+      return JSON.stringify( await this.catalogoService.findOne(id));
     } catch (error) {
       throw new BadRequestException('Failed to request ');
     }
   }
 
   @CatalogoCreateDecorator() 
-  create(@Body() createCatalogoDto: CreateCatalogoDto) {
+  async create(@Body() createCatalogoDto: CreateCatalogoDto) {
     try {
-      return JSON.stringify(this.catalogoService.create(createCatalogoDto));
+      return JSON.stringify(await this.catalogoService.create(createCatalogoDto));
     } catch (error) {
       throw new BadRequestException('Failed to insert ');
     }
   }
 
   @CatalogoDecoratorUpdate()
-  update(@Param('id') id: string, @Body() filme: UpdateCatalogoDto) {
+  async update(@Param('id') id: string, @Body() filme: UpdateCatalogoDto) {
     try {
-      return JSON.stringify(this.catalogoService.update(id, filme));
+      return JSON.stringify(await this.catalogoService.update(id, filme));
     } catch (error) {
       throw new BadRequestException('Failed to request ');
     }
@@ -52,9 +52,9 @@ export class CatalogoController {
 
 
   @CatalogoDecoratorDelete()
-  delete(@Param('id') id: string) {
+  async delete(@Param('id') id: string) {
     try {
-      return JSON.stringify(this.catalogoService.remove(id));
+      return JSON.stringify(await this.catalogoService.remove(id));
     } catch (error) {
       throw new BadRequestException('Failed to delete ');
     }
