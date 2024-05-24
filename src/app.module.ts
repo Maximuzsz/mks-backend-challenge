@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { CatalogoModule } from './catalogo/catalogo.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -14,10 +15,13 @@ import { AuthModule } from './auth/auth.module';
       password: 'root', //process.env.DB_PASSWORD,
       synchronize: true,
       entities:[__dirname +'/**/*.entity{.js, .ts}']
-  }),
+    }),
     UserModule,
-    AuthModule],
+    AuthModule,
+    CatalogoModule
+  ],
   controllers: [],
-  providers: [],
+  providers: [
+  ],
 })
 export class AppModule {}
