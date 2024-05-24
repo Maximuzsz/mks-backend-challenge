@@ -12,13 +12,13 @@ Tarefa (funcional)
 Ferramentas requeridas
 ---------------
 
-1. TypeScript
-2. Nest.js
-3. TypeORM
-4. Swagger
-5. Docker
-6. Redis
-7. PostgreSQL
+1. TypeScript: Experiência de 3 anos
+2. Nest.js: Experiência de 3 anos
+3. TypeORM: Experiência de 2 anos
+4. Swagger: Experiência de 3 anos
+5. Docker: Experiência de 3 anos
+6. Redis: Experiência de 3 anos
+7. PostgreSQL: Experiência de 4 anos
 
 Aspectos técnicos
 ---------------
