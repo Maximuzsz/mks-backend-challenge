@@ -13,7 +13,7 @@ import { UserModule } from './user/user.module';
       database:'verceldb',
       username: 'default',  //process.env.DB_USERNAME,
       password: '8O6CgWnxsrlJ', //process.env.DB_PASSWORD,
-      synchronize: true,
+      synchronize: false,
       ssl:true,
       entities:[__dirname +'/**/*.entity{.js, .ts}']
     }),

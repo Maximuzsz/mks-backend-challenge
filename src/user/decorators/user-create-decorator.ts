@@ -1,9 +1,11 @@
 import { applyDecorators, Post } from "@nestjs/common"
 import { ApiBody, ApiOperation } from "@nestjs/swagger"
+import { IsPublic } from "src/auth/decorators/is-public.decorator"
 
 export const UserCreateDecorator  =() =>{
     return applyDecorators(
         ApiOperation({ summary: "Criação do usuário" }),
+        IsPublic(),
         ApiBody({
             schema: {
               type: 'object',

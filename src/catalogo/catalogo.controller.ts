@@ -15,7 +15,6 @@ export class CatalogoController {
   constructor(private readonly catalogoService: CatalogoService) {}
 
   @CatalogoDecoratorGetAll()
-  @IsPublic()
   gatAllFilmes() {
     try {
       return JSON.stringify(this.catalogoService.findAll());
