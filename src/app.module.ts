@@ -8,12 +8,13 @@ import { UserModule } from './user/user.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host:process.env.DB_HOST,
-      port:Number(process.env.DB_PORT),
-      database:process.env.DB_DATABASE,
-      username: 'postgres',  //process.env.DB_USERNAME,
-      password: 'root', //process.env.DB_PASSWORD,
+      host:'ep-autumn-bread-38038175-pooler.us-east-1.aws.neon.tech',
+      port:5432,
+      database:'verceldb',
+      username: 'default',  //process.env.DB_USERNAME,
+      password: '8O6CgWnxsrlJ', //process.env.DB_PASSWORD,
       synchronize: true,
+      ssl:true,
       entities:[__dirname +'/**/*.entity{.js, .ts}']
     }),
     UserModule,
@@ -25,3 +26,4 @@ import { UserModule } from './user/user.module';
   ],
 })
 export class AppModule {}
+

@@ -18,7 +18,7 @@ export class CatalogoController {
   @IsPublic()
   gatAllFilmes() {
     try {
-      return this.catalogoService.findAll();
+      return JSON.stringify(this.catalogoService.findAll());
     } catch (error) {
       throw new BadRequestException('Failed to request ');
     }
@@ -27,7 +27,7 @@ export class CatalogoController {
   @CatalogoDecoratorGetID()
   getFilmesId(@Param('id') id: string) {
     try {
-      return this.catalogoService.findOne(id);
+      return JSON.stringify(this.catalogoService.findOne(id));
     } catch (error) {
       throw new BadRequestException('Failed to request ');
     }
@@ -36,7 +36,7 @@ export class CatalogoController {
   @CatalogoCreateDecorator() 
   create(@Body() createCatalogoDto: CreateCatalogoDto) {
     try {
-      return this.catalogoService.create(createCatalogoDto)
+      return JSON.stringify(this.catalogoService.create(createCatalogoDto));
     } catch (error) {
       throw new BadRequestException('Failed to insert ');
     }
@@ -45,7 +45,7 @@ export class CatalogoController {
   @CatalogoDecoratorUpdate()
   update(@Param('id') id: string, @Body() filme: UpdateCatalogoDto) {
     try {
-      return this.catalogoService.update(id, filme);
+      return JSON.stringify(this.catalogoService.update(id, filme));
     } catch (error) {
       throw new BadRequestException('Failed to request ');
     }
@@ -55,7 +55,7 @@ export class CatalogoController {
   @CatalogoDecoratorDelete()
   delete(@Param('id') id: string) {
     try {
-      return this.catalogoService.remove(id);
+      return JSON.stringify(this.catalogoService.remove(id));
     } catch (error) {
       throw new BadRequestException('Failed to delete ');
     }

@@ -17,7 +17,7 @@ export class UserController {
   @UserDecoratorGetAll()
   async getUsers() {
     try {
-      return await this.userService.getAll();
+      return JSON.stringify(await this.userService.getAll());
     } catch (error) {
       throw new BadRequestException('Failed to request');
     }
@@ -26,7 +26,7 @@ export class UserController {
   @UserDecoratorGetEmail()
   async getUserEmail(@Param('email') email: string) {
     try {
-      return await this.userService.getByEmail(email);
+      return JSON.stringify(await this.userService.getByEmail(email));
     } catch (error) {
       throw new BadRequestException('Failed to request');
     }
@@ -35,7 +35,7 @@ export class UserController {
   @UserCreateDecorator()
   async create(@Body() createUserDto: CreateUserDto) {
     try {
-      return this.userService.createUser(createUserDto);
+      return JSON.stringify(this.userService.createUser(createUserDto));
     } catch (error) {
       throw new BadRequestException('Failed to insert');
     }
